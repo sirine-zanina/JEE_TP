@@ -3,6 +3,7 @@ package com.isitcom.formationSpringboot.demo.services;
 import com.isitcom.formationSpringboot.demo.dao.ProduitRepository;
 import com.isitcom.formationSpringboot.demo.entities.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,8 +28,8 @@ public class ServiceProduit implements IServiceProduit{
     }
 
     @Override
-    public void updateProduct(Produit p) {
-        produitRepository.save(p);
+    public ResponseEntity<Produit> updateProduct(Produit p) {
+        return ResponseEntity.ok(produitRepository.save(p));
     }
 
     @Override

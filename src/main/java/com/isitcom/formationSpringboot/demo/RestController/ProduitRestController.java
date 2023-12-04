@@ -29,4 +29,13 @@ public class ProduitRestController {
         serviceProduit.addProduct(p);
     }
 
+    @DeleteMapping("/deleteproduit/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        serviceProduit.deleteProduct(id);
+    }
+    @PutMapping("/updateproduit")
+    public void updateProduct(@RequestBody Produit p){
+        serviceProduit.updateProduct(p);
+    }
+
 }
