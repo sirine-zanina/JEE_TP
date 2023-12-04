@@ -1,5 +1,6 @@
 package com.isitcom.formationSpringboot.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ public class Categorie {
     private Long id;
     private String nom;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categorie", cascade={CascadeType.PERSIST})
     private List<Produit> liste;
 
@@ -28,4 +30,5 @@ public class Categorie {
     private void preRemove() {
         liste.forEach(produit -> produit.setCategorie(null));
     }
+
 }
